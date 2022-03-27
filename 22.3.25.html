@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>22.3.25 自习课摸鱼</title>
+		<style>
+			body{
+				position:absolute;
+				top:0px;
+				left:0px;
+				height:100%;
+				width:100%;
+				background: rgb(75,75,75);
+				transition: all 0.25s;
+				user-select: none;
+				overflow:hidden;
+			}
+			p{
+				color: rgb(210,210,210);
+				transition: all 0.25s;
+			}
+			h1{
+				color: rgb(245,245,245);
+				transition: all 0.25s;
+			}
+		</style>
+		<script>
+			//some code here...
+		</script>
+	</head>
+	<body>
+		<h1 id="d3" style="top:10px;color:rgb(250,100,100)">**の教诲</h1>
+		<p style="top:10px">==================================================</p>
+		<p id="t1" style="top:5px"> [题目] 若将1和2和3和...一直到9999乘起来.</p>
+		<p>       求：结果中有多少个0.</p>
+		<p style="top:5px">==================================================</p>
+		<p id="out">[!#此处将输出结果#!]</p>
+		<p id="d1" style="top:10px;color:rgb(250,100,100)"> #Click anywhere in this page,sth might happened.#</p>
+		<script>
+			//some code here...
+			function m(ie){
+				var s=1;                                      //起点
+				var e=(arguments.length>=1) ? ie : 114514;    //终点
+				var count2=0,count5=0;
+				
+				for (var i=0;i<=e-s;i++){
+					var tmp2=s+i,tmp5=s+i;
+					while (tmp2%2==0){
+						count2++;
+						tmp2/=2;
+					}
+					while (tmp5%5==0){
+						count5++;
+						tmp5/=5;
+					}
+				}
+			
+				var rout=(count2>=count5) ? count5 : count2;  //输出
+				
+				
+				document.getElementById("t1").innerText=" [题目] 若将1和2和3和...一直到"+e.toString()+"乘起来.";
+				document.getElementById("out").innerText="你: 算个**，emm，这不就有 "+rout.toString()+" 个0嘛. [讯速地]";
+			}
+			
+			m();
+			
+			
+			//产生随机数
+			function randomNum(minNum, maxNum) {
+				switch (arguments.length) {
+					case 1:
+						return parseInt(Math.random() * minNum + 1, 10);
+						break;
+					case 2:
+						return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+						break;
+					default:
+						return 0;
+						break;
+				}
+			}
+			
+			
+			//监听鼠标click事件
+			document.body.addEventListener("click",()=>{
+				m(randomNum(10,999999));
+				var cobj={r:randomNum(90,255).toString(),g:randomNum(90,255).toString(),b:randomNum(90,255).toString()};
+				document.getElementById("d1").style.color="rgb("+cobj.r+","+cobj.g+","+cobj.b+")";
+				document.getElementById("d3").style.color="rgb("+cobj.r+","+cobj.g+","+cobj.b+")";
+			});
+			
+		</script>
+		
+	</body>
+</html>
